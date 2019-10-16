@@ -1,0 +1,20 @@
+<h1>Todo list !!!!</h1>
+
+<div *ngFor="let todo of (todos$ | async)" >
+
+  <p>Todo id: {{ todo.id }} </p>
+  <p>Is done: {{ todo.isDone }} </p>
+
+  <button (click)="updateTodo(todo.id, !todo.isDone)">Toggle done</button>
+  <button (click)="selectId(todo)">Select</button>
+  <button (click)="deleteTodo(todo.id)">Delete</button>
+
+  <hr>
+
+</div>
+
+<div *ngIf="(todoId$ | async) as todoId">
+  <p>Selected: {{ todoId }} </p>
+</div>
+
+<button (click)="createTodo()">Create new</button>
